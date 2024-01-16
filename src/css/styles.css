@@ -1,3 +1,120 @@
+/* General Page Styles */
 body {
-  background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+  background-color: black;
+  color: #d4af37; /* Metallic gold color */
+  font-family: Arial, sans-serif;
+}
+
+/* Header */
+header {
+  background-color: #1a1a1a; /* Darker shade for contrast */
+  color: #d4af37; /* Metallic gold color */
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* styling for the form and inputs */
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+input[type="text"], input[type="password"], input[type="date"] {
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #d4af37; /* Metallic gold color */
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #b29700; /* Slightly darker gold for hover effect */
+}
+
+/* Section Styles */
+section {
+  margin: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background for readability */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #1a1a1a; /* Darker shade for contrast */
+  color: #d4af37; /* Metallic gold color */
+  }
+  
+  h1, h2 {
+  color: #d4af37; /* headers in the "metallic" gold color*/
+  }
+  
+  /* Utility Classes */
+  .hidden {
+  display: none;
+  }
+
+  .centered-section {
+    text-align: center;
+}
+
+.centered-form {
+    display: inline-block;
+    text-align: left;
+}
+
+#view-rooms {
+    display: block;
+    margin: 20px auto; /* Centers the button */
+    background-color: #d4af37; /* "Metallic" gold color */
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#view-rooms:hover {
+  background-color: #b29700; /* Slightly darker gold/yellow for hover effect */
+  }
+
+  .center-text {
+    text-align: center;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center; /* center buttons horizontally */
+  align-items: center; /* align buttons towards the center of screen */
+  margin: 20px auto; /* center the group itself */
+  width: fit-content; /* fit the width of buttons to its content */
+}
+
+.button-group button {
+  margin: 0 50px; /* space between buttons */
+}
+#login-btn {
+  margin-left: -5px;
+}
+
+.hidden {
+    display: none;
 }
