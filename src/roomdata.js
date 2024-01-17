@@ -12,43 +12,51 @@ const rooms = [
         name: "Aquarium Suite",
         beds: 3,
         pricePerNight: 2120.10,
-        image: aquariumImg
+        image: aquariumImg,
+        roomNumber: 1
     },
     {
         name: "Duchess Suite",
         beds: 1,
         pricePerNight: 750,
-        image: duchessImg
+        image: duchessImg,
+        roomNumber: 20
     },
     {
         name: "Heiress Suite",
         beds: 1,
         pricePerNight: 1250.50,
-        image: heiressImg
+        image: heiressImg,
+        roomNumber: 7
     },
     {
         name: "Mayor Suite",
         beds: 2,
         pricePerNight: 520,
-        image: mayorImg
+        image: mayorImg,
+        roomNumber: 13
     },
     {
         name: "Pharaoh Suite",
         beds: 1,
         pricePerNight: 1990,
-        image: pharaohImg
+        image: pharaohImg,
+        roomNumber: 9
+
     },
     {
         name: "Shogun Suite",
         beds: 2,
         pricePerNight: 1100,
-        image: shogunImg
+        image: shogunImg,
+        roomNumber: 21
     },
     {
         name: "Sultan Suite",
         beds: 1,
         pricePerNight: 1750,
-        image: sultanImg
+        image: sultanImg,
+        roomNumber: 18
     }
 ];
 

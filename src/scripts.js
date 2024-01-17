@@ -21,6 +21,62 @@ function fetchCustomers() {
         .catch(error => console.log('Error fetching customers:', error));
 }
 
+function viewBookings() {
+    fetch('http://localhost:3001/api/v1/bookings')
+        .then(response => response.json())
+        .then(data => {
+            console.log('Bookings:', data);
+            // Populate bookings on the customer dashboard
+        })
+        .catch(error => console.error('Error fetching bookings:', error));
+}
+
+function deleteBooking(bookingId) {
+    fetch(`http://localhost:3001/api/v1/bookings/${bookingId}`, {
+        method: 'DELETE'
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Booking deleted');
+            // Handle successful deletion (e.g. update ui)
+        } else {
+            throw new Error('Failed to delete booking. Please contact management.'); //shouldnt happen ever?
+        }
+    })
+    .catch(error => console.error('Error deleting booking:', error));
+}    
+
+function bookRoom() {
+    //  'rooms' is an array of room objects with 'id' or 'number' properties
+    const randomRoomNumber = rooms[Math.floor(Math.random() * rooms.length)].id; // or .number, depending on your dataset
+
+    const bookingData = {
+        userID: currentCustomer.id, // Ensure this is a valid and expected userID
+        date: new Date().toISOString().split('T')[0].replace(/-/g, '/'), // Format date as 'YYYY/MM/DD'
+        roomNumber: randomRoomNumber
+    };
+
+    fetch('http://localhost:3001/api/v1/bookings', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(bookingData)
+    })
+    .then(response => {
+        if (!response.ok) {
+            return response.json().then(err => { throw err; });
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Booking successful:', data);
+    })
+    .catch(error => {
+        console.error('Error booking room:', error);
+    });
+}
+
 // Functions
 let currentCustomer = null; // store the current customer
 
@@ -53,8 +109,31 @@ function handleLoginSubmission(event) {
     document.getElementById('password').value = '';
 }
 
+
+function displayBookings(bookings) {
+    const dashboard = document.getElementById('customer-dashboard');
+    dashboard.innerHTML = ''; // Clear previous bookings
+
+    bookings.forEach(booking => {
+        const bookingDiv = document.createElement('div');
+        bookingDiv.innerHTML = `Date: ${booking.date}, Room: ${booking.roomNumber}`;
+        
+        // Delete button for each booking
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete Booking';
+        deleteButton.onclick = () => deleteBooking(booking.id);
+
+        bookingDiv.appendChild(deleteButton);
+        dashboard.appendChild(bookingDiv);
+    });
+}
+
+
+
 document.addEventListener('DOMContentLoaded', () => {
     initializePage();
     const loginForm = document.getElementById('login-form');
     if (loginForm) loginForm.addEventListener('submit', handleLoginSubmission);
 });
+
+export { bookRoom }

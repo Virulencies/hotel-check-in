@@ -3,6 +3,14 @@ body {
   background-color: black;
   color: #d4af37; /* Metallic gold color */
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 /* Header */
@@ -21,6 +29,11 @@ form {
   gap: 10px;
   margin-top: 20px;
 }
+
+.content-wrapper {
+  flex: 1;
+}
+
 
 input[type="text"], input[type="password"], input[type="date"] {
   padding: 8px;
@@ -51,11 +64,11 @@ section {
   background-color: rgba(255, 255, 255, 0.1); /* Slightly transparent background for readability */
 }
 
-/* Footer */
+
 footer {
   text-align: center;
   padding: 10px 0;
-  bottom: 0px;
+  bottom: 0;
   width: 100%;
   background-color: #1a1a1a;
   color: #d4af37;

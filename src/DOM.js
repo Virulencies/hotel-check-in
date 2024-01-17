@@ -1,4 +1,5 @@
 import rooms from './roomdata.js';
+import { bookRoom } from './scripts.js'
 
 //Globals
 let currentCustomer = null; // store the current customer
@@ -79,6 +80,13 @@ function showRoomDetails(room) {
 
     // make the room-details section visible...when it was hidden it wasnt showing up ever, but now this works still for some reason?
     roomDetailsSection.classList.remove('hidden');
+
+    //book now button
+    const bookButton = document.createElement('button');
+    bookButton.textContent = 'Book Now!';
+    bookButton.onclick = () => bookRoom(room.id);
+    roomDetailsSection.appendChild(bookButton);
+    
 }
 
 
