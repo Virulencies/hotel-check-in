@@ -13,34 +13,35 @@
 
     <!-- Login Section -->
     <section id="login-section" class="centered-section">
-      <h2 class="center-text">Your Stay Starts Here</h2>
-      <div class="button-group">
-          <button id="login-btn">Login</button>
-          <button id="view-rooms">View Rooms</button>
-      </div>
-      <form id="login-form" class="hidden">
-          <input type="text" id="username" placeholder="Username" required>
-          <input type="password" id="password" placeholder="Password" required>
-          <button type="submit">Submit</button>
-      </form>
-  </section>
+        <h2 class="center-text">Your Stay Starts Here</h2>
+        <div class="button-group">
+            <button id="login-btn">Login</button>
+            <button id="view-rooms">View Rooms</button>
+        </div>
+        <form id="login-form" class="hidden">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
 
     <!-- Customer Dashboard -->
     <section id="customer-dashboard" hidden>
         <h2>Customer Dashboard</h2>
-        <!-- Section for bookings and total amount spent -->
         <div id="booking-details"></div>
         <div id="total-spent"></div>
     </section>
 
-    <!-- Customer Room Booking Interactions go here -->
+    <!-- Customer Room Booking Interactions -->
     <section id="booking-interaction" hidden>
-        <h2>Book a Room</h2>
+        <h2>Book Your Next Stay</h2>
         <input type="date" id="booking-date">
         <button id="fetch-rooms">Check Availability</button>
-        <!-- List of available rooms should be populated here -->
         <div id="available-rooms"></div>
     </section>
+
+    <!-- Adding Room Details Section To Show Each Room Stats -->
+    <section id="room-details" hidden></section>
 
     <footer>
         <p>&copy; 2024 Swag Hotel Bookings</p>
