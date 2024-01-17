@@ -55,8 +55,7 @@ section {
 footer {
   text-align: center;
   padding: 10px 0;
-  position: fixed;
-  bottom: 0;
+  bottom: 0px;
   width: 100%;
   background-color: #1a1a1a;
   color: #d4af37;
@@ -134,4 +133,17 @@ footer {
   height: 150px; 
   object-fit: cover; 
   border-bottom: 1px solid #ddd; 
+}
+
+.room-detail-image {
+  width: 600px;
+  height: 600px; 
+  object-fit: cover; 
+  margin: 10px auto; 
+  border: 4px solid #ddd;
+  display: block; 
+}
+
+#room-details {
+  text-align: center;
 }

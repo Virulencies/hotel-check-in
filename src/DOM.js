@@ -1,8 +1,10 @@
 import rooms from './roomdata.js';
 
-//Global Variables
+//Globals
 let currentCustomer = null; // store the current customer
-
+/*const loginBtn = document.getElementById('login-btn');
+const viewRoomsBtn = document.getElementById('view-rooms');
+const loginForm = document.getElementById('login-form');*/
 
 // Funtionality
 function toggleLoginForm() {
@@ -29,6 +31,7 @@ function displayRooms() {
         const roomCard = document.createElement('div');
         roomCard.className = 'room-card';
         roomCard.onclick = () => showRoomDetails(room);
+       // console.log('Showing details for:', room.name);
 
         const roomImage = document.createElement('img');
         roomImage.src = room.image;
@@ -49,40 +52,51 @@ function displayRooms() {
 }
 
 function showRoomDetails(room) {
-    const roomDetailsSection = document.getElementById('room-details');
-    roomDetailsSection.innerHTML = ''; // Clear existing content
+    const roomsContainer = document.getElementById('rooms-container');
+    if (roomsContainer) {
+        roomsContainer.classList.add('hidden');
+    }
 
+    const roomDetailsSection = document.getElementById('room-details');
+    roomDetailsSection.innerHTML = '';
+
+    // create and append room name
     const roomName = document.createElement('h2');
     roomName.textContent = room.name;
+    roomDetailsSection.appendChild(roomName);
 
+    // same for image
     const roomImage = document.createElement('img');
     roomImage.src = room.image;
     roomImage.alt = `Image of ${room.name}`;
     roomImage.className = 'room-detail-image';
+    roomDetailsSection.appendChild(roomImage);
 
+    // and the room info
     const roomInfo = document.createElement('p');
     roomInfo.textContent = `Beds: ${room.beds}, Price per night: $${room.pricePerNight.toFixed(2)}, Available: ${room.available ? 'Yes' : 'No'}`;
-
-    roomDetailsSection.appendChild(roomName);
-    roomDetailsSection.appendChild(roomImage);
     roomDetailsSection.appendChild(roomInfo);
 
-    roomDetailsSection.classList.remove('hidden'); // Show the room details section
+    // make the room-details section visible...when it was hidden it wasnt showing up ever, but now this works still for some reason?
+    roomDetailsSection.classList.remove('hidden');
 }
+
 
 // All on DOM load listeners
 document.addEventListener('DOMContentLoaded', () => {
+    // Moved targeting stuff inside DOMContentLoaded
     const loginBtn = document.getElementById('login-btn');
     const viewRoomsBtn = document.getElementById('view-rooms');
+    const loginForm = document.getElementById('login-form');
 
-    if (loginBtn) {
-        loginBtn.addEventListener('click', toggleLoginForm);
-    }
+    if (loginBtn) loginBtn.addEventListener('click', toggleLoginForm);
+    if (viewRoomsBtn) viewRoomsBtn.addEventListener('click', displayRooms);
+    //if (loginForm) loginForm.addEventListener('submit', handleLoginSubmission);
 
-    if (viewRoomsBtn) {
-        viewRoomsBtn.addEventListener('click', displayRooms);
-    }
+    //initializePage();
 });
+
+
 
 export { toggleLoginForm, displayRooms, showRoomDetails };
 

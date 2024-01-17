@@ -21,7 +21,6 @@ function fetchCustomers() {
         .catch(error => console.log('Error fetching customers:', error));
 }
 
-
 // Functions
 let currentCustomer = null; // store the current customer
 
@@ -33,8 +32,6 @@ function initializePage() {
         }
     });
 }
-
-//document.addEventListener('DOMContentLoaded', initializePage);
 
 function handleLoginSubmission(event) {
     event.preventDefault();
@@ -58,5 +55,6 @@ function handleLoginSubmission(event) {
 
 document.addEventListener('DOMContentLoaded', () => {
     initializePage();
-    document.getElementById('login-form').addEventListener('submit', handleLoginSubmission);
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) loginForm.addEventListener('submit', handleLoginSubmission);
 });
